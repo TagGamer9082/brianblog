@@ -1,0 +1,32 @@
+<%= form_with(model: testblog, local: true) do |form| %>
+  <% if testblog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(testblog.errors.count, "error") %> prohibited this testblog from being saved:</h2>
+
+      <ul>
+        <% testblog.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Title %>
+    <%= form.text_field :Title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Message %>
+    <%= form.text_area :Message %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Email %>
+    <%= form.text_field :Email %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
